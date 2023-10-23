@@ -1,0 +1,25 @@
+// アニメーションを定義します
+@use "../global/mixin/media-query" as mq;
+
+// 調整したかったら@mixinで定義して、引数を渡す
+.a-mv-right {
+    &:hover {
+        &::after  {
+            right: 6.5vw;
+            @include mq.pc {
+                right: 1.2vw;
+            }
+        }
+    }
+}
+// 調整したかったら@mixinで定義して、引数を渡す
+.a-mv-pushed {
+    &:active {
+        transform: translate3d(1vw, 1vw, 0);
+        box-shadow: 0 0;
+        @include mq.pc {
+            transform: translate3d(0.4vw, 0.4vw, 0);
+            box-shadow: 0 0;
+        }
+    }
+}

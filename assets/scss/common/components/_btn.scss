@@ -1,0 +1,7 @@
+@use "../../global/mixin/btn" as btn;
+.c-btn-shadow {
+    @include btn.btn-shadow(red);
+}
+.c-btn-borderless {
+    @include btn.btn-borderless(blue);
+}

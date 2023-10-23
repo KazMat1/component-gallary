@@ -1,0 +1,74 @@
+@use "./media-query" as mq;
+// button
+@mixin btn-borderless($bg-color) {
+    display: inline-block;
+    width: 92vw;
+    position: relative;
+    background-color: $bg-color;
+    font-size: 3.6vw;
+    padding: 5vw 0;
+    text-align: center;
+    color: white;
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: calc(50% - 1.5vw); /* height ÷ 2 を引く*/
+        right: 7.5vw;
+        width: 3vw;
+        height: 3vw;
+        border-top: solid 1.5px #fff;
+        border-right: solid 1.5px #fff;
+        transform: rotate(45deg);
+        transition: all .2s ease-out;
+    }
+    @include mq.pc {
+        width: 22.5vw;
+        font-size: 1vw;
+        padding: 1.4vw 5vw;
+        &::after {
+        top: calc(50% - 0.4vw); /* height ÷ 2 を引く*/
+        right: 1.6vw;
+        width: 0.8vw;
+        height: 0.8vw;
+        }
+    }
+}
+
+@mixin btn-shadow($bg-color) {
+    display: inline-block;
+    width: 92vw;
+    border: 1px solid #fff;
+    position: relative;
+    background-color: $bg-color;
+    font-size: 3.6vw;
+    padding: 5vw 0;
+    box-shadow: 1vw 1vw rgba($bg-color, 0.5);
+    text-align: center;
+    color: white;
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: calc(50% - 1.5vw); /* height ÷ 2 を引く*/
+        right: 7.5vw;
+        width: 3vw;
+        height: 3vw;
+        border-top: solid 1.5px #fff;
+        border-right: solid 1.5px #fff;
+        transform: rotate(45deg);
+        transition: all .2s ease-out;
+    }
+    @include mq.pc {
+        width: 22.5vw; /* ボタンの横幅 */
+        font-size: 1vw; /* 文字の大きさ */
+        padding: 1.4vw 5vw; /* ボタンの大きさ */
+        box-shadow: 0.4vw 0.4vw rgba($bg-color, 0.5); /* 影のサイズと色 */
+        &::after {
+            top: calc(50% - 0.4vw); /* 矢印の高さ。height ÷ 2 を引く*/
+            right: 1.6vw; /* 矢印の位置。*/
+            width: 0.8vw; /* 矢印の長さ。heightと揃える*/
+            height: 0.8vw; /* 矢印の長さ。widthと揃える*/
+        }
+    }
+}
